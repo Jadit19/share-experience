@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration</title>
+        <link rel="stylesheet" href="/css/navbar.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/user/style.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <%- include('../partials/navbar') %>
+            <div class="container">
+                <h1>Registration</h1>
+                <form action="/user/api/register" id="regForm" method="POST" enctype="multipart/form-data" class="content">
+                    <div class="form-group">
+                        <input required placeholder="Enter Your First Name" type="text" name="firstname" id="firstname" class="form-control">
+                        <div class="back"></div>
+                    </div>
+                    <div class="form-group">
+                        <input required placeholder="Enter Your Last Name" type="text" name="lastname" id="lastname" class="form-control">
+                        <div class="back"></div>
+                    </div>
+                    <div class="form-group">
+                        <input required placeholder="Enter Your User-Name" type="text" name="username" id="username" class="form-control">
+                        <div class="back"></div>
+                    </div>
+                    <div class="form-group">
+                        <input required placeholder="Enter Your Email ID" type="email" name="email" id="email" class="form-control">
+                        <div class="back"></div>
+                    </div>
+                    <div class="form-group">
+                        <input required placeholder="Enter Your Password" type="password" name="password" id="password" class="form-control">
+                        <div class="back"></div>
+                    </div>
+                    <div class="form-group">
+                        <input required type="file" name="profilePic" id="profilePic" class="form-control">
+                    </div>
+                    <div class="btnContainer">
+                        <a href="/" class="btn">Forgot Password?</a>
+                        <input class="btn" type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

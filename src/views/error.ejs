@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="/css/navbar.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/user/style.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <%- include('./partials/navbar') %> 
+            <div class="container">
+                <h1>ERROR!!</h1>
+                <div class="content">
+                    <br><h2>The ERROR may be caused due to one or more of the following reasons:</h2>
+                    <br>
+                    <ul style="padding-left: 20px">
+                        <li>No Login Detected</li>
+                        <li>Wrong Username-Password Combination Entered</li>
+                        <li>Duplicate Department Name</li>
+                        <li>Duplicate Subject Name</li>
+                        <li>Duplicate Article Name (Yeah, even among different subjects, article names cannot be the same :smile_in_pain:)</li>
+                    </ul>
+                    <br>
+                    <div class="btnContainer" style="margin-top: 0px;">
+                        <a href="/" class="btn">Home</a>
+                        <a onclick="window.history.back()" class="btn">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

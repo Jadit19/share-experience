@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="/css/navbarSuccess.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/user/style.css">
+        <link rel="stylesheet" href="/css/user/profile.css">
+    </head>
+    <body onload="tokenPresence()">
+        <div class="wrapper">
+            <%- include('../partials/navbarSuccess') %>
+            <div class="container">
+                <h1>Profile Page</h1>
+                <div class="content">
+                    <div class="userDataCont">
+                        <div class="textData">
+                            <div class="infoCont">
+                                <span class="dataField">First Name:</span>
+                                <span class="userData"></span>
+                            </div>
+                            <div class="infoCont">
+                                <span class="dataField">Last Name:</span>
+                                <span class="userData"></span>
+                            </div>
+                            <div class="infoCont">
+                                <span class="dataField">User Name:</span>
+                                <span class="userData"></span>
+                            </div>
+                            <div class="infoCont">
+                                <span class="dataField">Email ID:</span>
+                                <span class="userData"></span>
+                            </div>
+                        </div>
+                        <div class="userImage">
+                            <img alt="Profile Picture" id="profilePic">
+                        </div>
+                    </div>
+                    <div class="btnContainer" style="margin-top: 0px;">
+                        <a onclick="logoutFunction()" class="btn">Logout</a>
+                        <a href="/user/changePassword" class="btn">Change Password</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/js/user/profile.js"></script>
+        <script src="/js/navbarSuccess.js"></script>
+    </body>
+</html>
