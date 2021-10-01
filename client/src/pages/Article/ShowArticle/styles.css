@@ -1,0 +1,9 @@
+.articleName{
+    width: 100%;
+    padding: 10px;
+    padding-right: 10%;
+    background-color: var(--light-sc);
+    color: white;
+    font-weight: 500;
+    text-align: right;
+}
