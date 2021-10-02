@@ -68,3 +68,9 @@ a{
   align-items: center;
   justify-content: space-evenly;
 }
+
+@media (max-width: 500px){
+  .part2{
+    flex-direction: column;
+  }
+}

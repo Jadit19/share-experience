@@ -6,6 +6,7 @@ import Login from './pages/User/Login/Login';
 import SignUp from './pages/User/SignUp/SignUp';
 import Profile from './pages/User/Profile/Profile';
 import ChangePass from './pages/User/ChangePass/ChangePass';
+import ForgotPass from './pages/User/ForgotPass/ForgotPass';
 
 import AllDept from './pages/Article/AllDept/AllDept';
 import NewDept from './pages/Article/NewDept/NewDept';
@@ -35,6 +36,7 @@ function App() {
               <Route exact path='/user/signUp'><SignUp /></Route>
               <Route exact path='/user/profile'><Profile user={user} /></Route>
               <Route exact path='/user/changePassword'><ChangePass user={user} /></Route>
+              <Route exact path='/user/forgotPassword'><ForgotPass /></Route>
 
               <Route exact path='/article'><AllDept user={user} /></Route>
               <Route exact path='/article/newDept'><NewDept user={user} /></Route>

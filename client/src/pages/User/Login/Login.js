@@ -58,8 +58,9 @@ const Login = ({ saveUser }) => {
                     <button className='btn btn__secondary' type='reset' onClick={resetFunc}>RESET</button>
                 </div>
 
-                <div className='btn__container'>
+                <div className='btn__container part2'>
                     <Button onClick={() => window.location.href = '/user/signUp'}>New here?&nbsp;<b>SignUp!</b></Button>
+                    <Button onClick={() => window.location.href = '/user/forgotPassword'}><b>Forgot</b>&nbsp;Password?</Button>
                 </div>
             </form>
         </div>
