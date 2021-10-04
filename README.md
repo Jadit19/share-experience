@@ -27,6 +27,6 @@ $ npm start
 In case any error or bug is found, do let us know! :)<br />
 Suggestions are welcomed with open arms.<br />
 This product is still in it's development and testing phase.<br />
-Original Idea: <a href='https://github.com/dinesh-cpu' target='_blank'>Dinesh Ram</a>
-team members :<a href='https://github.com/Jadit19' target = '_blank'>Adit jain</a>
+Original Idea: <a href='https://github.com/dinesh-cpu' target='_blank'>Dinesh Ram</a><br />
+Dev Team  :<a href='https://github.com/Jadit19' target = '_blank'>Adit jain</a>
 
