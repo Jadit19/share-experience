@@ -5,7 +5,7 @@ import Subject from "../models/SubjectModel.js"
 import Article from "../models/ArticleModel.js"
 import Comment from "../models/CommentModel.js"
 
-import { newDept, getAllDept, deptSubjects, newSubject, newArticle, allArticles, showArticle, newComment } from '../controllers/ArticleController.js'
+import { newDept, getAllDept, deptSubjects, newSubject, newArticle, allArticles, showArticle, newComment, deleteArticle } from '../controllers/ArticleController.js'
 
 const router = express.Router()
 
@@ -32,5 +32,8 @@ router.get('/:deptSlug/:subjectSlug/:articleSlug/', showArticle)
 
 //! STATUS: OK
 router.post('/:deptSlug/:subjectSlug/:articleSlug/newComment', newComment)
+
+//! STATUS: NOT OK
+router.post('/delete', deleteArticle)
 
 export default router

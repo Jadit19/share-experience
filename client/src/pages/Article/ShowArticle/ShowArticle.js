@@ -1,9 +1,10 @@
 //! STATUS: OK
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import { TextField } from '@material-ui/core'
+import { IconButton, TextField } from '@material-ui/core'
+import DeleteIcon from '@material-ui/icons/Delete'
 
-import { showArticle, newComment } from '../../../actions/ArticleActions'
+import { showArticle, newComment, deleteArticle } from '../../../actions/ArticleActions'
 import Comment from '../../../components/Comment/Comment'
 import NoLogin from '../../../components/NoLogin/NoLogin'
 import './styles.css'
@@ -21,6 +22,11 @@ const ShowArticle = ({ user }) => {
         articleSlug: articleSlug,
         username: user.firstName + ' ' + user.lastName,
         markdown: ''
+    })
+    const [articleData, setArticleData] = useState({
+        articleSlug: articleSlug,
+        subjectSlug: subjectSlug,
+        deptSlug: deptSlug
     })
 
     useEffect(() => {
@@ -66,6 +72,18 @@ const ShowArticle = ({ user }) => {
         }
     }
 
+    const handleDelete = () => {
+        deleteArticle(articleData)
+            .then(res => {
+                console.log(res.data)
+                window.location.href = `/article/${deptSlug}/${subjectSlug}`
+            })
+            .catch(error => {
+                console.log(error)
+                alert('Please try again at a later time..')
+            })
+    }
+
     if (user){
 
         // console.log(dept)
@@ -81,7 +99,17 @@ const ShowArticle = ({ user }) => {
 
                     <div className='content'>
                         <div dangerouslySetInnerHTML={{ __html: article.sanitizedHTML }} />
-                        {/* { article.sanitizedHTML } */}
+
+                        {
+                            user.firstName + ' ' + user.lastName === article.username ? (
+                                <div className='deleteContainer'>
+                                    <IconButton onClick={handleDelete}>
+                                        <DeleteIcon />
+                                    </IconButton>
+                                </div>
+                            ) : null
+                        }
+
                     </div>
                 </div>
 

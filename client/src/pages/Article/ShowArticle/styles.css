@@ -7,3 +7,10 @@
     font-weight: 500;
     text-align: right;
 }
+
+.deleteContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

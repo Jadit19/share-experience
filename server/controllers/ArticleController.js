@@ -197,3 +197,33 @@ export const newComment = async (req, res) => {
         res.status(400).json({ message: 'Something went wrong! X(' })
     }
 }
+
+export const deleteArticle = async (req, res) => {
+    const { deptSlug, subjectSlug, articleSlug } = req.body
+
+    const oldArticle = await Article.findOne({
+        deptSlug: deptSlug,
+        subjectSlug: subjectSlug,
+        slug: articleSlug
+    })
+    if (!oldArticle){
+        res.status(404).json({ message: 'Article Not Found!' })
+        return
+    }
+
+    const deletedArticle = await Article.deleteOne({
+        deptSlug: deptSlug,
+        subjectSlug: subjectSlug,
+        slug: articleSlug
+    })
+    // console.log(deletedArticle)
+
+    const deletedComments = await Comment.deleteMany({
+        deptSlug: deptSlug,
+        subjectSlug: subjectSlug,
+        articleSlug: articleSlug
+    })
+    // console.log(deletedComments)
+
+    res.status(200).json(req.body)
+}
