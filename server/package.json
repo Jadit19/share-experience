@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "App.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon App.js"
+  },
+  "author": "Adit Jain",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dompurify": "^2.3.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsdom": "^17.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "marked": "^3.0.4",
+    "mongoose": "^6.0.7",
+    "nodemailer": "^6.6.5",
+    "nodemon": "^2.0.13",
+    "slugify": "^1.6.0"
+  }
+}
