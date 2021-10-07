@@ -38,7 +38,8 @@ const articleSchemma = mongoose.Schema({
     slug: {
         type: String,
         required: true,
-    }
+    },
+    likes: [String]
 })
 
 articleSchemma.pre('validate', function(next) {

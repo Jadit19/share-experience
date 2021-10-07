@@ -3,6 +3,8 @@ import Subject from "../models/SubjectModel.js"
 import Article from "../models/ArticleModel.js"
 import Comment from "../models/CommentModel.js"
 
+import User from "../models/UserModel.js"
+
 export const getAllDept = async (req, res) => {
     const allDept = await Dept.find()
     res.send(allDept)
@@ -161,6 +163,8 @@ export const showArticle = async (req, res) => {
         return
     }
 
+    // console.log(oldArticle)
+
     try {
         const allComments = await Comment.find({
             deptSlug: deptSlug,
@@ -226,4 +230,46 @@ export const deleteArticle = async (req, res) => {
     // console.log(deletedComments)
 
     res.status(200).json(req.body)
+}
+
+export const likePost = async (req, res) => {
+    // console.log(req.body)
+
+    const { deptSlug, subjectSlug, articleSlug, userID } = req.body
+
+    const oldArticle = await Article.findOne({
+        deptSlug: deptSlug,
+        subjectSlug: subjectSlug,
+        slug: articleSlug
+    })
+    if (!oldArticle){
+        res.status(404).json({ message: 'Could not find article..' })
+        return
+    }
+    // console.log(oldArticle)
+    
+    const oldUser = await User.findOne({
+        _id: userID
+    })
+    if (!oldUser){
+        res.status(404).json({ message: 'User not found!' })
+        return
+    }
+    // console.log(oldUser)
+
+    // console.log(oldArticle.likes)
+
+    if (!oldArticle.likes.includes(userID)){
+        await Article.updateOne({ _id: oldArticle._id }, {
+            $addToSet: { likes: userID }
+        })
+        // console.log('Liked Now..')
+    } else {
+        await Article.updateOne({ _id: oldArticle._id }, {
+            $pull: { likes: userID }
+        })
+        // console.log('Disliked now..')
+    }
+
+    res.status(200)
 }

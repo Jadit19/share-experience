@@ -6,7 +6,7 @@ import mongoose from 'mongoose'
 dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 5000
-const CONNECTION_URL = 'mongodb://localhost:27017/share-trial-6'
+const CONNECTION_URL = 'mongodb://localhost:27017/share-trial-7'
 
 import UserRoutes from './routes/UserRoutes.js'
 import ArticleRoutes from './routes/ArticleRoutes.js'

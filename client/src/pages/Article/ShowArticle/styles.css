@@ -8,8 +8,22 @@
     text-align: right;
 }
 
-.deleteContainer{
+.lnd{
+    margin-top: 10px;
+    display: flex;
     width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.likeContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.deleteContainer{
     display: flex;
     justify-content: flex-end;
     align-items: center;

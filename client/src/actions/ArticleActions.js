@@ -12,4 +12,6 @@ export const newArticle = (articleData) => API.post(`/article/${articleData.dept
 
 export const showArticle = (deptSlug, subjectSlug, articleSlug) => API.get(`/article/${deptSlug}/${subjectSlug}/${articleSlug}`)
 export const newComment = (commentData) => API.post(`/article/${commentData.deptSlug}/${commentData.subjectSlug}/${commentData.articleSlug}/newComment`, commentData)
+
 export const deleteArticle = (articleData) => API.post('/article/delete', articleData)
+export const likeArticle = (articleData) => API.post('/article/like', articleData)
