@@ -11,6 +11,7 @@ export const getArticle = (deptSlug, subjectSlug) => API.get(`/article/${deptSlu
 export const newArticle = (articleData) => API.post(`/article/${articleData.deptSlug}/${articleData.subjectSlug}/newArticle`, articleData)
 
 export const showArticle = (deptSlug, subjectSlug, articleSlug) => API.get(`/article/${deptSlug}/${subjectSlug}/${articleSlug}`)
+export const editArticle = (articleData) => API.post(`/article/${articleData.deptSlug}/${articleData.subjectSlug}/${articleData.articleSlug}/edit`, articleData)
 export const newComment = (commentData) => API.post(`/article/${commentData.deptSlug}/${commentData.subjectSlug}/${commentData.articleSlug}/newComment`, commentData)
 
 export const deleteArticle = (articleData) => API.post('/article/delete', articleData)

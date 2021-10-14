@@ -5,6 +5,7 @@ import { IconButton, TextField } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp'
+import EditIcon from '@material-ui/icons/Edit'
 
 import { showArticle, newComment, deleteArticle, likeArticle } from '../../../actions/ArticleActions'
 import Comment from '../../../components/Comment/Comment'
@@ -89,6 +90,10 @@ const ShowArticle = ({ user }) => {
         }
     }
 
+    const handleEdit = () => {
+        window.location.href = `/article/${deptSlug}/${subjectSlug}/${articleSlug}/edit`
+    }
+
     const handleDelete = () => {
         deleteArticle(articleData)
             .then(res => {
@@ -143,7 +148,10 @@ const ShowArticle = ({ user }) => {
 
                             {
                                 user.firstName + ' ' + user.lastName === article.username ? (
-                                    <div className='deleteContainer'>
+                                    <div className='deleteEditContainer'>
+                                        <IconButton onClick={handleEdit}>
+                                            <EditIcon />
+                                        </IconButton>
                                         <IconButton onClick={handleDelete}>
                                             <DeleteIcon />
                                         </IconButton>

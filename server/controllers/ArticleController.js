@@ -1,3 +1,8 @@
+import marked from 'marked'
+import { JSDOM } from 'jsdom'
+import createDomPurify from 'dompurify'
+const dompurify = createDomPurify(new JSDOM().window)
+
 import Dept from "../models/DeptModel.js"
 import Subject from "../models/SubjectModel.js"
 import Article from "../models/ArticleModel.js"
@@ -272,4 +277,24 @@ export const likePost = async (req, res) => {
     }
 
     res.status(200)
+}
+
+export const editArticle = async (req, res) => {
+    const { deptSlug, subjectSlug, articleSlug, markdown } = req.body
+    // console.log(req.body)
+
+    try {
+        const sanitizedHTML = dompurify.sanitize(marked(markdown))
+        await Article.updateOne({
+            deptSlug: deptSlug,
+            subjectSlug: subjectSlug,
+            slug: articleSlug
+        }, {
+            $set: { markdown, sanitizedHTML }
+        })
+        res.status(200).json({ message: 'Article updated successfully!' })
+    } catch (error){
+        console.log(error)
+        res.status(401).json({ message: error.message })
+    }
 }

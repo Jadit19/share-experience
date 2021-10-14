@@ -15,6 +15,7 @@ import NewSubject from './pages/Article/NewSubject/NewSubject';
 import AllArticle from './pages/Article/AllArticle/AllArticle';
 import NewArticle from './pages/Article/NewArticle/NewArticle';
 import ShowArticle from './pages/Article/ShowArticle/ShowArticle';
+import EditArticle from './pages/Article/EditArticle/EditArticle';
 
 import Navbar from './components/Navbar/Navbar';
 import './App.css';
@@ -45,6 +46,7 @@ function App() {
               <Route exact path='/article/:deptSlug/:subjectSlug'><AllArticle user={user} /></Route>
               <Route exact path='/article/:deptSlug/:subjectSlug/newArticle'><NewArticle user={user} /></Route>
               <Route exact path='/article/:deptSlug/:subjectSlug/:articleSlug'><ShowArticle user={user} /></Route>
+              <Route exact path='/article/:deptSlug/:subjectSlug/:articleSlug/edit'><EditArticle user={user} /></Route>
             </Switch>
           </Router>
         </div>

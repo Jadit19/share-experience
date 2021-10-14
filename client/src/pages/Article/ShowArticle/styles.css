@@ -23,7 +23,7 @@
     color: rgba(0, 0, 0, 0.54);
 }
 
-.deleteContainer{
+.deleteEditContainer{
     display: flex;
     justify-content: flex-end;
     align-items: center;
