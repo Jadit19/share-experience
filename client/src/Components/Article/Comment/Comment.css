@@ -1,0 +1,33 @@
+.comment__wrapper{
+    width: 100%;
+    padding: 3px;
+}
+
+.comment{
+    width: 100%;
+    border: 2px solid rgba(0,0,0,0.3);
+    padding: 5px;
+    position: relative;
+}
+
+.comment__name a{
+    color: var(--color-2);
+}
+.comment__content{
+    margin-top: 5px;
+}
+
+.comment__options{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.comment__operations{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+}

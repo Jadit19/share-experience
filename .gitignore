@@ -1,2 +1,8 @@
-client/node_modules
-server/node_modules
+/client/mode_modules
+/client/.env
+
+/server/node_modules
+/server/.env
+
+/socket/node_modules
+/socket/.env

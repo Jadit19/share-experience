@@ -1,47 +1,24 @@
 import mongoose from 'mongoose'
-import marked from 'marked'
-import { JSDOM } from 'jsdom'
-import createDomPurify from 'dompurify'
 
-const dompurify = createDomPurify(new JSDOM().window)
-
-const commentSchemma = mongoose.Schema({
-    markdown: {
+const CommentSchema = mongoose.Schema({
+    content: {
         type: String,
-        required: true
+        require: true
     },
-    sanitizedHTML: {
+    authorName: {
         type: String,
-        required: true
+        require: true
     },
-    subjectSlug: {
+    authorId:{
         type: String,
-        required: true
+        require: true
     },
-    deptSlug: {
+    articleId: {
         type: String,
-        required: true
-    },
-    articleSlug: {
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now()
+        require: true
     }
+}, {
+    timestamps: true
 })
 
-commentSchemma.pre('validate', function(next) {
-    if (this.markdown){
-        this.sanitizedHTML = dompurify.sanitize(marked(this.markdown))
-    }
-
-    next()
-})
-
-export default mongoose.model('Comment', commentSchemma)
+export default mongoose.model('Comment', CommentSchema)

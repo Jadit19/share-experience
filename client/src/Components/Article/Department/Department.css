@@ -1,0 +1,32 @@
+.department__wrapper{
+    padding: 10px;
+    width: 300px;
+}
+
+.department{
+    cursor: pointer;
+    width: 280px;
+    background-color: var(--color-2-dark);
+    color: white;
+    border-radius: 10px;
+    border-bottom-right-radius: 0px;
+}
+.department:hover .dept__name{
+    text-decoration: underline;
+}
+
+.dept__name{
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 10px;
+    text-transform: uppercase;
+    height: 90px;
+}
+.dept__link{
+    background-color: var(--color-2);
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}

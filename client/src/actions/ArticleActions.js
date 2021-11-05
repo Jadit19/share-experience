@@ -1,18 +1,23 @@
-import axios from 'axios'
-export const API = axios.create({ baseURL: 'http://localhost:5000' })
+import { API } from './config'
 
-export const newDept = (deptData) => API.post('/article/newDept', deptData)
-export const getAllDept = () => API.get('/article')
+//! Create
+export const newDept = (deptData) => API.post('/article/new/dept', deptData)
+export const newSubject = (subjectData) => API.post('/article/new/subject', subjectData)
+export const newArticle = (articleData) => API.post('/article/new/article', articleData)
+export const newComment = (commentData) => API.post('/article/new/comment', commentData)
 
-export const getSubject = (deptSlug) => API.get(`/article/${deptSlug}`)
-export const newSubject = (subjData) => API.post(`/article/${subjData.deptSlug}/newSubject`, subjData)
+//! Read
+export const getAllDepts = () => API.get('/article/view/allDepts')
+export const getAllSubjects = (postData) => API.get(`/article/view/allSubjects/${postData.deptSlug}`)
+export const getAllArticles = (postData) => API.get(`/article/view/allArticles/${postData.deptSlug}/${postData.subjectSlug}`)
+export const getOneArticle = (postData) => API.get(`/article/view/article/${postData.deptSlug}/${postData.subjectSlug}/${postData.articleSlug}`)
+export const getAllComments = (postData) => API.get(`/article/view/allComments/${postData.articleId}`)
 
-export const getArticle = (deptSlug, subjectSlug) => API.get(`/article/${deptSlug}/${subjectSlug}`)
-export const newArticle = (articleData) => API.post(`/article/${articleData.deptSlug}/${articleData.subjectSlug}/newArticle`, articleData)
+//! Update
+export const editArticle = (articleData) => API.put('/article/edit/article', articleData)
+export const editComment = (commentData) => API.put('/article/edit/comment', commentData)
+export const likeArticle = (likeData) => API.put('/article/edit/likeArticle', likeData)
 
-export const showArticle = (deptSlug, subjectSlug, articleSlug) => API.get(`/article/${deptSlug}/${subjectSlug}/${articleSlug}`)
-export const editArticle = (articleData) => API.post(`/article/${articleData.deptSlug}/${articleData.subjectSlug}/${articleData.articleSlug}/edit`, articleData)
-export const newComment = (commentData) => API.post(`/article/${commentData.deptSlug}/${commentData.subjectSlug}/${commentData.articleSlug}/newComment`, commentData)
-
-export const deleteArticle = (articleData) => API.post('/article/delete', articleData)
-export const likeArticle = (articleData) => API.post('/article/like', articleData)
+//! Delete
+export const deleteArticle = (articleData) => API.delete(`/article/delete/article/${articleData.articleId}/${articleData.userId}`)
+export const deleteComment = (commentData) => API.delete(`/article/delete/comment/${commentData.commentId}/${commentData.userId}`)

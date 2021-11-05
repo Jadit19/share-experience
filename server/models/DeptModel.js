@@ -1,29 +1,30 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 import slugify from 'slugify'
 
-const deptSchema = mongoose.Schema({
+const DeptSchema = mongoose.Schema({
     deptName: {
         type: String,
-        required: true,
+        require: true,
         unique: true
     },
-    createdAt: {
-        type: Date,
-        default: Date.now()
-    },
-    slug: {
+    deptSlug: {
         type: String,
-        required: true,
+        require: true,
         unique: true
     }
+}, {
+    timestamps: true
 })
 
-deptSchema.pre('validate', function (next){
+DeptSchema.pre('validate', function (next){
     if (this.deptName){
-        this.slug = slugify(this.deptName, { lower: true, strict: true })
+        this.deptSlug = slugify(this.deptName, {
+            lower: true,
+            strict: true
+        })
     }
 
     next()
 })
 
-export default mongoose.model('Dept', deptSchema)
+export default mongoose.model('Dept', DeptSchema)

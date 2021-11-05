@@ -1,26 +1,38 @@
 import mongoose from 'mongoose'
 
-const userSchema = mongoose.Schema({
+const UserSchema = mongoose.Schema({
     firstName: {
         type: String,
-        required: true
+        require: true
     },
     lastName: {
-        type: String
+        type: String,
+    },
+    userName: {
+        type: String,
+        require: true,
+        unique: true
     },
     email: {
         type: String,
-        required: true,
+        require: true,
         unique: true
     },
     password: {
         type: String,
-        required: true
+        require: true
     },
     profilePic: {
         type: String,
-        default: ''
+        default: 'no-profile-picture.png'
+    },
+    isAdmin: {
+        type: Boolean,
+        require: true,
+        default: false
     }
+}, {
+    timestamps: true
 })
 
-export default mongoose.model('User', userSchema)
+export default mongoose.model('User', UserSchema)

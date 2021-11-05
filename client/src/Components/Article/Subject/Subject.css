@@ -1,0 +1,32 @@
+.subject__wrapper{
+    padding: 10px;
+    width: 300px;
+}
+
+.subject{
+    cursor: pointer;
+    width: 280px;
+    background-color: var(--color-3-dark);
+    color: white;
+    border-radius: 10px;
+    border-bottom-right-radius: 0px;
+}
+.subject:hover .subject__name{
+    text-decoration: underline;
+}
+
+.subject__name{
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 10px;
+    text-transform: uppercase;
+    height: 90px;
+}
+.subject__link{
+    background-color: var(--color-3);
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}

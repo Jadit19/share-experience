@@ -1,0 +1,45 @@
+.auth__form{
+    margin-top: 20px;
+    padding-right: 10px;
+}
+
+.w40{
+    width: 40% !important;
+    flex-direction: column;
+}
+
+.profile__container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.profile__img__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.profile__img__container > img{
+    width: 200px !important;
+    height: 200px !important;
+    object-fit: cover;
+    border-radius: 200px;
+}
+
+@media (min-width: 800px){
+    .w60{
+        width: 60% !important;
+    }
+    .profile__img__container{
+        display: none;
+    }
+}
+@media (max-width: 800px){
+    .w60{
+        width: 100% !important;
+    }
+}

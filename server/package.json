@@ -7,21 +7,22 @@
   "scripts": {
     "start": "nodemon App.js"
   },
-  "author": "Adit Jain",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.4",
+    "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
-    "dompurify": "^2.3.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "jsdom": "^17.0.0",
-    "jsonwebtoken": "^8.5.1",
-    "marked": "^3.0.4",
-    "mongoose": "^6.0.7",
-    "nodemailer": "^6.6.5",
-    "nodemon": "^2.0.13",
-    "slugify": "^1.6.0"
+    "jsdom": "^18.0.1",
+    "marked": "^3.0.8",
+    "mongoose": "^6.0.12",
+    "multer": "^1.4.3",
+    "nodemailer": "^6.7.0",
+    "nodemon": "^2.0.14",
+    "path": "^0.12.7",
+    "slugify": "^1.6.1"
   }
 }

@@ -1,0 +1,37 @@
+.link__article__wrapper{
+    padding: 10px;
+    width: 300px;
+}
+
+.link__article{
+    cursor: pointer;
+    width: 280px;
+    background-color: var(--color-1-dark);
+    color: white;
+    border-radius: 10px;
+    border-bottom-right-radius: 0px;
+}
+.link__article:hover .link__article__title{
+    text-decoration: underline;
+}
+
+.link__article__title{
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 10px;
+    text-transform: uppercase;
+}
+.link__article__name{
+    font-size: 1rem;
+    padding: 10px;
+    background-color: var(--color-1);
+}
+.link__article__link{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    background-color: var(--color-1);
+    color: white;
+    padding-top: 40px;
+    border-bottom-left-radius: 10px;
+}

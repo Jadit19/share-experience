@@ -1,58 +1,49 @@
-import React, { useState } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from  'react-router-dom'
+import useLocalStorage from './Hooks/useLocalStorage';
 
-import Home from './pages/Home/Home';
-import Login from './pages/User/Login/Login';
-import SignUp from './pages/User/SignUp/SignUp';
-import Profile from './pages/User/Profile/Profile';
-import ChangePass from './pages/User/ChangePass/ChangePass';
-import ForgotPass from './pages/User/ForgotPass/ForgotPass';
+import Navbar from './Components/Navbar/Navbar';
+import Home from './Pages/Home';
+import LoginTrue from './Components/User/Login/LoginTrue';
+import LoginFalse from './Components/User/Login/LoginFalse';
 
-import AllDept from './pages/Article/AllDept/AllDept';
-import NewDept from './pages/Article/NewDept/NewDept';
-import AllSubject from './pages/Article/AllSubject/AllSubject';
-import NewSubject from './pages/Article/NewSubject/NewSubject';
-import AllArticle from './pages/Article/AllArticle/AllArticle';
-import NewArticle from './pages/Article/NewArticle/NewArticle';
-import ShowArticle from './pages/Article/ShowArticle/ShowArticle';
-import EditArticle from './pages/Article/EditArticle/EditArticle';
+import Register from './Pages/User/Register';
+import Login from './Pages/User/Login';
+import Forgot from './Pages/User/Forgot';
+import Profile from './Pages/User/Profile'
+import EditProfile from './Pages/User/EditProfile';
 
-import Navbar from './components/Navbar/Navbar';
-import './App.css';
+import AllDept from './Pages/Article/AllDept';
+import AllSubjects from './Pages/Article/AllSubjects';
+import AllArticles from './Pages/Article/AllArticles';
+import ShowArticle from './Pages/Article/ShowArticle';
 
 function App() {
-  // const user = JSON.parse(localStorage.getItem('profile'))
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
-  
-  return (
-    <div className="App">
-      <Navbar user={user} />
+    const [user, setUser] = useLocalStorage('user', null)
 
-      <div className='jff'>
-        <div className='main__container'>
-          <Router>
-            <Switch>
-              <Route exact path='/'><Home /></Route>
-              <Route exact path='/user/login'><Login saveUser={setUser} /></Route>
-              <Route exact path='/user/signUp'><SignUp /></Route>
-              <Route exact path='/user/profile'><Profile user={user} /></Route>
-              <Route exact path='/user/changePassword'><ChangePass user={user} /></Route>
-              <Route exact path='/user/forgotPassword'><ForgotPass /></Route>
+    return (
+        <div className='app'>
+            <Navbar user={user} />
+            <div className='main__container'>
+                <Router>
+                    <Switch>
+                        <Route exact path='/'><Home /></Route>
 
-              <Route exact path='/article'><AllDept user={user} /></Route>
-              <Route exact path='/article/newDept'><NewDept user={user} /></Route>
-              <Route exact path='/article/:deptSlug'><AllSubject user={user} /></Route>
-              <Route exact path='/article/:deptSlug/newSubject'><NewSubject user={user} /></Route>
-              <Route exact path='/article/:deptSlug/:subjectSlug'><AllArticle user={user} /></Route>
-              <Route exact path='/article/:deptSlug/:subjectSlug/newArticle'><NewArticle user={user} /></Route>
-              <Route exact path='/article/:deptSlug/:subjectSlug/:articleSlug'><ShowArticle user={user} /></Route>
-              <Route exact path='/article/:deptSlug/:subjectSlug/:articleSlug/edit'><EditArticle user={user} /></Route>
-            </Switch>
-          </Router>
+                        <Route exact path='/user/register'>{ user ? <LoginTrue user={user} /> : <Register setUser={setUser} /> }</Route>
+                        <Route exact path='/user/login'>{ user ? <LoginTrue user={user} /> : <Login setUser={setUser} /> }</Route>
+                        <Route exact path='/user/forgot'>{ user ? <LoginTrue user={user} /> : <Forgot /> }</Route>
+                        <Route exact path='/user/profile/:userName'>{ user ? <Profile user={user} /> : <LoginFalse /> }</Route>
+                        <Route exact path='/user/editProfile'>{ user ? <EditProfile user={user} setUser={setUser} /> : <LoginFalse /> }</Route>
+
+                        <Route exact path='/article'>{ user ? <AllDept user={user} /> : <LoginFalse /> }</Route>
+                        <Route exact path='/article/:deptSlug'>{ user ? <AllSubjects user={user} /> : <LoginFalse /> }</Route>
+                        <Route exact path='/article/:deptSlug/:subjectSlug'>{ user ? <AllArticles user={user} /> : <LoginFalse /> }</Route>
+                        <Route exact path='/article/:deptSlug/:subjectSlug/:articleSlug'>{ user ? <ShowArticle user={user} /> : <LoginFalse /> }</Route>
+                    </Switch>
+                </Router>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default App;

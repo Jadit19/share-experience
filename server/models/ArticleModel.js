@@ -1,57 +1,54 @@
 import mongoose from 'mongoose'
 import slugify from 'slugify'
-import marked from 'marked'
-import { JSDOM } from 'jsdom'
-import createDomPurify from 'dompurify'
 
-const dompurify = createDomPurify(new JSDOM().window)
-
-const articleSchemma = mongoose.Schema({
-    title: {
+const ArticleSchema = mongoose.Schema({
+    articleName: {
         type: String,
-        required: true
+        require: true,
+        unique: true
     },
-    markdown: {
+    content: {
         type: String,
-        required: true
+        require: true
     },
-    sanitizedHTML: {
+    authorName: {
         type: String,
-        required: true
+        require: true
+    },
+    authorId: {
+        type: String,
+        require: true
+    },
+    likes: {
+        type: Array,
+        default: []
+    },
+    articleSlug: {
+        type: String,
+        require: true,
+        unique: true
     },
     subjectSlug: {
         type: String,
-        required: true
+        require: true
     },
     deptSlug: {
         type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now()
-    },
-    slug: {
-        type: String,
-        required: true,
-    },
-    likes: [String]
+        require: true
+    }
+}, {
+    timestamps: true
 })
 
-articleSchemma.pre('validate', function(next) {
-    if (this.title){
-        this.slug = slugify(this.title, { lower: true, strict: true })
-    }
-
-    if (this.markdown){
-        this.sanitizedHTML = dompurify.sanitize(marked(this.markdown))
+ArticleSchema.pre('validate', function (next){
+    if (this.articleName){
+        this.articleSlug = slugify(this.articleName, {
+            lower: true,
+            unique: true
+        })
     }
 
     next()
 })
 
-export default mongoose.model('Article', articleSchemma)
+export default mongoose.model('Article', ArticleSchema)
