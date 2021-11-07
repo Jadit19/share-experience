@@ -12,7 +12,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp'
 import MessageOutlinedIcon from '@material-ui/icons/MessageOutlined'
 
-import { IMG_URL } from '../../Actions/config';
+import { IMG_URL } from '../../config';
 import './Navbar.css'
 
 const Navbar = ({ user }) => {

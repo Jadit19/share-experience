@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 import AuthRouter from './Routes/User/AuthRoute.js'
 import UserRouter from './Routes/User/UserRoute.js'
 import ArticleRouter from './Routes/Article/ArticleRoute.js'
+import ChatRouter from './Routes/Chat/ChatRoute.js'
 import { SERVER_PORT, MONGO_URL } from './config.js'
 
 //! Configuration
@@ -63,6 +64,7 @@ app.post('/uploadFile', upload.single("file"), async (req, res) => {
 app.use('/auth', AuthRouter)
 app.use('/user', UserRouter)
 app.use('/article', ArticleRouter)
+app.use('/chat', ChatRouter)
 
 //! Listening
 app.listen(SERVER_PORT, () => {

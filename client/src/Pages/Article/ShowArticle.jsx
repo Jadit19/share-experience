@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import { TextField, IconButton } from '@material-ui/core'
+import { TextField, IconButton, Modal, Box } from '@material-ui/core'
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp'
 import EditIcon from '@material-ui/icons/Edit'
 import DeleteIcon from '@material-ui/icons/Delete'
+import CloseIcon from '@material-ui/icons/Close'
 
 import { getAllComments, getOneArticle, newComment, editArticle, likeArticle, deleteArticle } from '../../Actions/ArticleActions'
 import Comment from '../../Components/Article/Comment/Comment'
@@ -32,6 +33,7 @@ const ShowArticle = ({ user }) => {
     const [formVisible, setFormVisible] = useState(0)
     const [likes, setLikes] = useState(0)
     const [isLiked, setIsLiked] = useState(0)
+    const [displayModal, setDisplayModal] = useState(false)
     const inputVariant = 'standard'
     const inputStyle = {
         marginBottom: '10px'
@@ -79,6 +81,9 @@ const ShowArticle = ({ user }) => {
             })
     }, [deptSlug, subjectSlug, articleSlug])
 
+    const closeModal = () => {
+        setDisplayModal(false)
+    }
     const handleSubmit = (e) => {
         e.preventDefault()
         newComment(postData)
@@ -175,7 +180,7 @@ const ShowArticle = ({ user }) => {
                                         <IconButton onClick={() => setFormVisible(1)}>
                                             <EditIcon />
                                         </IconButton>
-                                        <IconButton onClick={handleDelete}>
+                                        <IconButton onClick={() => setDisplayModal(true)}>
                                             <DeleteIcon />
                                         </IconButton>
                                     </div>
@@ -209,6 +214,25 @@ const ShowArticle = ({ user }) => {
                         ))
                     }
                 </div>
+
+                <Modal open={displayModal} onClose={closeModal}>
+                    <Box className="modal__box">
+                        <div className="modal__heading__container">
+                            <div className="modal__heading">
+                                Delete Article
+                            </div>
+                            <IconButton onClick={closeModal}>
+                                <CloseIcon />
+                            </IconButton>
+                        </div>
+                        <div className="modal__body">
+                            <div>Are you sure you want to delete this article?</div>
+                            <div className="btn__container">
+                                <button className="btn btn-3" onClick={handleDelete}>Yes</button>
+                            </div>
+                        </div>
+                    </Box>
+                </Modal>
             </div>
         )
     } else {

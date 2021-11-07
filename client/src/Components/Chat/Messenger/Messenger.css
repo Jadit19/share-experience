@@ -1,0 +1,22 @@
+.messenger{
+    height: 100%;
+    width: 100%;
+}
+
+.messages__full__absolute__wrapper{
+    width: 100%;
+    height: calc(100% - 50px);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.all__messages__wrapper{
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    height: 200px;
+    overflow-y: auto;
+}

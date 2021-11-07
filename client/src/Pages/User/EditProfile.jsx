@@ -59,7 +59,7 @@ const EditProfile = ({ user, setUser }) => {
                     .then((res) => {
                         alert('User info updated successfully!')
                         setUser(res.data)
-                        window.location.href = '/user/profile'
+                        window.location.href = `/user/profile/${user.userName}`
                     })
                     .catch ((res, error) => {
                         console.log(error)

@@ -1,4 +1,4 @@
-import { API } from './config'
+import { API } from '../config'
 
 //! Create
 export const newDept = (deptData) => API.post('/article/new/dept', deptData)

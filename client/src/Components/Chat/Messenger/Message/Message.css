@@ -1,0 +1,28 @@
+.msg{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.msg__top{
+    padding: 10px;
+    border-radius: 20px ;
+    background-color: var(--color-1);
+    color: white;
+    width: fit-content;
+    max-width: 500px;
+}
+
+.msg__bottom{
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.msg.own{
+    align-items: flex-end;
+}
+.msg.own .msg__top{
+    background-color: lightgray;
+    color: black;
+}

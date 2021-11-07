@@ -1,0 +1,26 @@
+.send__message{
+    width: 100%;
+    position: sticky;
+    bottom: 0px;
+    background-color: white;
+    padding: 5px;
+}
+
+.message__form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.message__input{
+    width: calc(100% - 53px);
+    height: 48px;
+    border-radius: 24px;
+    padding: 0 12px;
+    outline: none;
+    border: none;
+    background-color: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.3);
+    font-size: 1rem;
+}

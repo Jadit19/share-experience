@@ -15,8 +15,8 @@ In order to see the project in it's full glory, you'll have to install <a href='
 
 ```html
 .
-├── .gitignore
-├── README.md
+│   .gitignore
+│   README.md
 │
 ├── client/
 ├── server/

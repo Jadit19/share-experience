@@ -22,6 +22,8 @@ export const editArticle = async (req, res) => {
             $set: {
                 content: content
             }
+        }, {
+            timestamps: true
         })
         return res.status(200).json(updatedArticle)
     } catch (error){
@@ -48,6 +50,8 @@ export const editComment = async (req, res) => {
             $set: {
                 content: content
             }
+        }, {
+            timestamps: true
         })
         res.status(200).json(updatedComment)
     } catch (error){
@@ -70,12 +74,16 @@ export const likeArticle = async (req, res) => {
                 $pull: {
                     likes: userId
                 }
+            }, {
+                timestamps: true
             })
         } else {
             await Article.findByIdAndUpdate(articleId, {
                 $push: {
                     likes: userId
                 }
+            }, {
+                timestamps: true
             })
         }
         return res.status(200).json("Article likes updated successfully!")

@@ -35,7 +35,8 @@ function generatePassword(length){
 //! Sign Up (STATUS: OK)
 export const register = async (req, res) => {
     try {
-        const { firstName, lastName, userName, email, password: normalPass, profilePic } = req.body
+        const { firstName, lastName, userName: lCaseUName, email, password: normalPass, profilePic } = req.body
+        const userName = lCaseUName.toUpperCase()
         const hashedPassword = await bcrypt.hash(normalPass, 12)
         const newUser = new User({
             firstName: firstName,
