@@ -9,6 +9,7 @@ In order to see the project in it's full glory, you'll have to install <a href='
 - This project was concieved as a platform where the students of a college or university can help each other in various academic related areas.<br />
 - Students will be able to interact via nicely structured forum pages categorized by the forum's Department and Subject (or Course). Open conversations can also be held in every forum's comment section.<br />
 - For privacy, students can directly chat with each other as well using the ``Chat`` option available as a form of Instant Messaging. A feature of 'Group Chat' is in the works and hopefully will be completed soon.
+- This application can be run on a browser or as an OS-independent Desktop App.
 <!-- - The 'Admins' of the website will be able to censor the unrequired posts as well. -->
 
 ## Architecture of the project ``./share-experience-``
@@ -62,6 +63,10 @@ $ npm start
 $ cd client
 $ npm install
 $ npm start
+```
+- In-case you want to run a Desktop app version of it, instead of running "npm start" in the client, you can run:
+```sh
+$ npm run electron-dev
 ```
 - CAUTION: Start the back-end and socket-io before starting the front end. Or, obviously, no API request will be able to proceed..
 <!-- - If you want, you can change the port and mongo DB url in the appropriate locations. -->

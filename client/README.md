@@ -12,6 +12,7 @@
 │       index.html
 │       logo192.png
 │       logo512.png
+│       main.js
 │       manifest.json
 │       robots.txt
 │       
