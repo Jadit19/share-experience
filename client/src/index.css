@@ -41,9 +41,7 @@ a{
 .main__container{
     width: 100%;
     max-width: 1000px;
-    margin-top: 50px;
     padding: 10px;
-    min-height: calc(100vh - 50px);
 }
 
 .card__wrapper{

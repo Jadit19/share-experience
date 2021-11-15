@@ -64,7 +64,11 @@ $ cd client
 $ npm install
 $ npm start
 ```
-- In-case you want to run a Desktop app version of it, instead of running "npm start" in the client, you can run:
+- In-case you want to run a Desktop app version of it, firstly, openup the `./client/src/config.js` file and then make the following change on line 6:
+```js
+export const isDesktopApp = 1
+```
+- And then, instead of running "npm start" in the client, you can run:
 ```sh
 $ npm run electron-dev
 ```

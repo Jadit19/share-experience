@@ -13,6 +13,7 @@ import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp'
 import MessageOutlinedIcon from '@material-ui/icons/MessageOutlined'
 
 import { IMG_URL } from '../../config';
+import { isDesktopApp } from '../../config';
 import './Navbar.css'
 
 const Navbar = ({ user }) => {
@@ -28,7 +29,7 @@ const Navbar = ({ user }) => {
     }
 
     return (
-        <nav className='navbar'>
+        <nav className='navbar' style={{ top: isDesktopApp ? '30px' : '0' }}>
             <div className='navbar__left'>
                 SHARE
             </div>

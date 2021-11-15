@@ -1,12 +1,10 @@
 .chat__main__container__wrapper{
     position: absolute;
-    top: 0px;
     left: 50%;
     transform: translateX(-50%);
     margin-top: 50px;
     width: 100%;
     max-width: 1600px;
-    min-height: calc(100vh - 50px);
     display: flex;
 }
 

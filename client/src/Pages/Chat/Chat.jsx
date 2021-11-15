@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { io } from 'socket.io-client'
 
-import { WEB_SOCKET_URL } from '../../config'
+import { WEB_SOCKET_URL, isDesktopApp } from '../../config'
 import Sidebar from '../../Components/Chat/Sidebar/Sidebar'
 import Messenger from '../../Components/Chat/Messenger/Messenger'
 import './Chat.css'
@@ -22,7 +22,7 @@ const Chat = ({ user }) => {
     }, [socket])
 
     return (
-        <div className='chat__main__container__wrapper'>
+        <div className='chat__main__container__wrapper' style={{ height: isDesktopApp ? 'calc(100vh - 80px)' : 'calc(100vh - 50px)', top: isDesktopApp ? '30px' : '0' }}>
             {
                 window.innerWidth>850 || !displayChats ? (
                     <div className="sidebar__wrapper">

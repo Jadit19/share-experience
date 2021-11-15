@@ -1,0 +1,39 @@
+.top__menu__bar{
+    width: 100vw;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    -webkit-user-select: none;
+    position: fixed;
+}
+
+.top__menu__bar__left{
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    -webkit-app-region: drag;
+}
+
+.top__menu__bar__right{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top__btn{
+    padding: 10px 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.top__btn:hover{
+    background-color: rgb(50,50,50);
+}

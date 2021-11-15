@@ -2,6 +2,9 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from  'react-router-dom'
 import useLocalStorage from './Hooks/useLocalStorage';
 
+import { isDesktopApp } from './config';
+
+import Topbar from './Components/Topbar/Topbar';
 import Navbar from './Components/Navbar/Navbar';
 import Home from './Pages/Home';
 import LoginTrue from './Components/User/Login/LoginTrue';
@@ -25,8 +28,11 @@ function App() {
 
     return (
         <div className='app'>
+        {
+            isDesktopApp ? <Topbar /> : null
+        }
             <Navbar user={user} />
-            <div className='main__container'>
+            <div className='main__container' style={{ marginTop: isDesktopApp ? '80px' : '50px', minHeight: isDesktopApp ? 'calc(100vh - 80px)' : 'calc(100vh - 50px)' }}>
                 <Router>
                     <Switch>
                         <Route exact path='/'><Home /></Route>

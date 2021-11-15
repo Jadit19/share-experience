@@ -3,6 +3,8 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
+export const isDesktopApp = 0
+
 const SERVER_PORT = process.env.SERVER_PORT || 5000
 export const SERVER_URL = `http://localhost:${SERVER_PORT}`
 export const IMG_URL = SERVER_URL + '/images/'
