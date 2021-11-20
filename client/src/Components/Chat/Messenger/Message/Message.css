@@ -12,6 +12,7 @@
     color: white;
     width: fit-content;
     max-width: 500px;
+    word-wrap: break-word;
 }
 
 .msg__bottom{
@@ -25,4 +26,10 @@
 .msg.own .msg__top{
     background-color: lightgray;
     color: black;
+}
+
+@media (max-width: 500px){
+    .msg__top{
+        max-width: 300px;
+    }
 }

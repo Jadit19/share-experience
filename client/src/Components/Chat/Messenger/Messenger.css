@@ -19,4 +19,11 @@
     padding: 0 10px;
     height: 200px;
     overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media (max-width: 850px){
+    .messenger{
+        width: 100vw;
+    }
 }
