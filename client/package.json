@@ -42,7 +42,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron-dev": "concurrently \"cross-env BROWSER=none npm run start\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron-pack": "build --em.main=build/main.js"
+    "electron-pack": "build --em.main=build/main.js",
+    "start-all-web": "concurrently \"cd ../server && npm start\" \"cd ../socket && npm start\" \"npm start\"",
+    "start-all-app": "concurrently \"cd ../server && npm start\" \"cd ../socket && npm start\" \"cross-env BROWSER=none npm run start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": [
