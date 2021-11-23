@@ -54,7 +54,7 @@ SERVER_PORT = <insert server port here>
 ```sh
 $ npm run install-client-dep
 $ npm run install-server-dep
-$ npm run install-server-dep
+$ npm run install-socket-dep
 ```
 
 - To start the application in a browser, run the following command in the terminal:
