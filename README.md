@@ -17,6 +17,7 @@ In order to see the project in it's full glory, you'll have to install <a href='
 ```html
 .
 │   .gitignore
+│   package.json
 │   README.md
 │
 ├── client/
@@ -25,12 +26,15 @@ In order to see the project in it's full glory, you'll have to install <a href='
 ```
 
 ## How to run it on your local machine
+
 - Create a ``.env`` file in all three directories.
+
 - In ``./socket/.env``, type in the following:
 ```html
 SOCKET_PORT = <insert socket port here>
 CLIENT_PORT = 3000
 ```
+
 - In ``./server/.env``, type in the following:
 ```html
 SERVER_PORT = <insert server port here>
@@ -39,24 +43,35 @@ MAIL_ID = <insert server email ID here>
 MAIL_PASSWORD = <insert server email password here>
 MAIL_PROVIDER = <insert server email provider's name here>
 ```
+
 - In ``./client/.env``, type in the following:
 ```html
 SOCKET_PORT = <insert socket port here>
 SERVER_PORT = <insert server port here>
 ```
+
 - Now open a terminal in the cloned repo and type in the following commands:
 ```sh
-$ cd client
-$ npm run start-all-web
+$ npm run install-client-dep
+$ npm run install-server-dep
+$ npm run install-server-dep
 ```
-- In-case you want to run a Desktop app version of it, firstly, openup the `./client/src/config.js` file and then make the following change on line 6:
+
+- To start the application in a browser, run the following command in the terminal:
+```sh
+$ npm run start-web
+```
+
+- To start the application as an OS-independant Desktop App, firstly make the following change on line 6 in the file `./client/src/config.js`:
 ```js
 export const isDesktopApp = 1
 ```
-- And then, instead of running `npm run start-all-web` in the client, you can run:
+
+- And now run the following command in the terminal:
 ```sh
-$ npm run start-all-app
+$ npm run start-app
 ```
+
 <!-- - If you want, you can change the port and mongo DB url in the appropriate locations. -->
 
 ## Happy Hacking!
