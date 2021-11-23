@@ -1,6 +1,6 @@
 .top__menu__bar{
     width: 100vw;
-    background-color: black;
+    background-color: var(--color-1-dark);
     color: white;
     display: flex;
     align-items: center;
@@ -35,5 +35,5 @@
     cursor: pointer;
 }
 .top__btn:hover{
-    background-color: rgb(50,50,50);
+    background-color: var(--color-1);
 }

@@ -1,0 +1,24 @@
+{
+  "name": "share-experience-",
+  "version": "1.0.0",
+  "description": "Hello there!",
+  "main": "index.js",
+  "scripts": {
+    "install-client-dep": "cd client && npm i",
+    "install-server-dep": "cd server && npm i",
+    "install-socket-dep": "cd socket && npm i",
+    "start-web": "cd client && npm run start-all-web",
+    "start-app": "cd client && npm run start-all-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jadit19/share-experience-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jadit19/share-experience-/issues"
+  },
+  "homepage": "https://github.com/Jadit19/share-experience-#readme"
+}
